@@ -4,6 +4,8 @@
 #include <QMainWindow>
 #include<QListWidgetItem>
 #include<ordercatalog.h>
+#include<usercatalog.h>
+#include<administrator.h>
 namespace Ui {
 class MainWindow;
 }
@@ -15,7 +17,7 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
-
+     bool isDigit(QString);//判断字符串是否是纯数字的函数
 private slots:
 
 
@@ -25,10 +27,18 @@ private slots:
     void Submit();
      void CreatOrder();
     void SeatUpdate(int);
+    void doLogin();
+    void setUp();
+    void skinLogin();
+    void skinSetup();
+
 
 private:
     Ui::MainWindow *ui;
     OrderCatalog *ordercatalog;
+   UserCatalog *usercatalog;
+   User *currentUser;
+   Administrator *admin;
 };
 
 #endif // MAINWINDOW_H

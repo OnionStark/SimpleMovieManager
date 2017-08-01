@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1179</width>
-    <height>812</height>
+    <height>985</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -392,7 +392,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>410</y>
+      <y>390</y>
       <width>541</width>
       <height>371</height>
      </rect>
@@ -442,7 +442,7 @@
     <property name="geometry">
      <rect>
       <x>580</x>
-      <y>410</y>
+      <y>390</y>
       <width>471</width>
       <height>361</height>
      </rect>
@@ -712,6 +712,19 @@
       </widget>
      </widget>
     </widget>
+   </widget>
+   <widget class="QGroupBox" name="groupBox">
+    <property name="geometry">
+     <rect>
+      <x>430</x>
+      <y>790</y>
+      <width>120</width>
+      <height>80</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>GroupBox</string>
+    </property>
    </widget>
   </widget>
  </widget>

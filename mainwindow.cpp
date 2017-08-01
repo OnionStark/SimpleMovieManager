@@ -7,22 +7,44 @@
 #include<QTableWidgetItem>
 using namespace std;
 
+bool MainWindow::isDigit(QString src){
+    QByteArray ba = src.toLatin1();//QString 转换为 char*
+         const char *s = ba.data();
+
+        while(*s && *s>='0' && *s<='9') s++;
+
+        if (*s)
+        { //不是纯数字
+            return false;
+        }
+        else
+        { //纯数字
+            return true;
+        }
+}
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
    ordercatalog = new OrderCatalog();
+   usercatalog = new UserCatalog() ;
+   admin=new Administrator();
     ui->setupUi(this);
     ui->Selection->hide();
-    ui->widget->hide();
+    ui->CreatOrder->hide();
+
 }
 
 MainWindow::~MainWindow()
 {
+    delete usercatalog;
     delete ui;
 }
 
+void MainWindow::skinLogin(){
+    ui->layout->setCurrentWidget(ui->pageLogin);
+}
 
 void MainWindow::ListUpdate(){
     QString s =ui->lineEdit->text();
@@ -114,5 +136,60 @@ void MainWindow::CreatOrder(){
            }
        }
    }
+
+}
+void MainWindow::doLogin(){
+    if(!isDigit(ui->setPassword->text())){
+        ui->loginMessage->setText("密码必须为纯数字");
+        return;
+    }
+    if(ui->setPassword->text()!=ui->twicePassword->text()){
+        ui->loginMessage->setText("两次输入密码不一致");
+        return;
+    }
+    if(!isDigit(ui->setPhone->text())){
+        ui->loginMessage->setText("电话号码必须为纯数字");
+        return;
+    }
+    if(usercatalog->findUser(ui->setName->text())!=NULL){
+        ui->loginMessage->setText("用户名已存在");
+        return;
+    }
+    bool ok;
+    QString sex;
+    if(ui->man->isChecked()){
+        sex="男";
+
+    }
+    else{
+        sex="女";
+    }
+    User temp(usercatalog->getUserList().size(),ui->setName->text(),ui->setPassword->text().toInt(&ok,10),ui->setNickName->text(),sex,ui->setEmail->text(),ui->setPhone->text().toInt(&ok,10),ui->setAddress->text());
+    usercatalog->getUserList().push_back(temp);
+    ui->loginMessage->setText("注册成功");
+    skinSetup();
+}
+void MainWindow::skinSetup(){
+    ui->layout->setCurrentWidget(ui->pageSetup);
+}
+
+void MainWindow::setUp(){
+    bool ok;
+    if(ui->user->isChecked()){
+    if((currentUser=usercatalog->findUser(ui->name->text()))==NULL||currentUser->getPassword()!=ui->password->text().toInt(&ok,10)){
+        ui->setupMessage->setText("用户名或密码错误");
+    }
+    else{
+        ui->setupMessage->setText("登录成功");
+     }
+    }
+    else{
+        if(ui->name->text().toInt(&ok,10)==admin->getNumber()&&ui->password->text().toInt(&ok,10)==admin->getPasswoud()){
+            ui->setupMessage->setText("登录成功");
+        }
+        else{
+            ui->setupMessage->setText("用户名或密码错误");
+        }
+    }
 
 }

@@ -32,7 +32,12 @@ SOURCES += main.cpp\
     moviecatalogui.cpp \
     movieinfomationlabel.cpp \
     order.cpp \
-    ordercatalog.cpp
+    ordercatalog.cpp \
+    user.cpp \
+    administrator.cpp \
+    comment.cpp \
+    commentcatalog.cpp \
+    usercatalog.cpp
 
 HEADERS  += mainwindow.h \
     movie.h \
@@ -43,6 +48,11 @@ HEADERS  += mainwindow.h \
     ../build-MovieManagement-Desktop_Qt_5_8_0_MinGW_32bit-Debug/ui_mainwindow.h \
     movieinformationlabel.h \
     order.h \
-    ordercatalog.h
+    ordercatalog.h \
+    user.h \
+    administrator.h \
+    comment.h \
+    commentcatalog.h \
+    usercatalog.h
 
 FORMS    += mainwindow.ui
