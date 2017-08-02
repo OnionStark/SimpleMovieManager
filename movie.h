@@ -1,8 +1,10 @@
 #ifndef MOVIE_H
 #define MOVIE_H
 #include<iostream>
-#include<vector>
+#include<QVector>
+#include<QString>
 #include<string>
+#include<vector>
 #include"seat.h"
 #include"session.h"
 using namespace std;
@@ -19,8 +21,6 @@ public:
     int getWhole_time();
     string getType();
     string getIntrotuce();
-    //vector<Seat>& getRemainSeat();
-    //vector<Session>& getRemainSession();
     vector<Session>& getSessionList();
 private:
     int movie_no;
@@ -32,7 +32,7 @@ private:
     string type;
     string introtuce;
     vector<Session> SessionList;
-    //poster;
+
 };
 
 #endif // MOVIE_H

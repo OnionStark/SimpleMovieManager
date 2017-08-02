@@ -33,7 +33,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     ui->Selection->hide();
     ui->CreatOrder->hide();
-
+    ui->userList->setuserList(this->usercatalog);
 }
 
 MainWindow::~MainWindow()
@@ -192,4 +192,19 @@ void MainWindow::setUp(){
         }
     }
 
+}
+
+void MainWindow::userShow(QListWidgetItem* a){
+   User* temp=usercatalog->findUser(a->data(Qt::UserRole).toString());
+   ui->labelUserInfo->setText("Id：\t"+QString::number(temp->getNumber())+"\n帐号名：\t"+temp->getName()+"\n昵称：\t"+temp->getNickName()+"\n性别：\t"+temp->getSex()+"\n电子邮箱：\t"+temp->getEmail()+"\n电话号码：\t"+QString::number(temp->getPhone())+"\n地址：\t"+temp->getAddress());
+}
+void MainWindow::deletUser(){
+    int temp=0;
+    for(int i=0;i<usercatalog->getUserList().size();i++){
+        if(ui->userList->currentItem()->data(Qt::UserRole).toString()==usercatalog->getUserList()[i].getName()){
+            temp=i;
+        }
+    }
+    usercatalog->getUserList().erase(usercatalog->getUserList().begin()+temp);
+    ui->userList->resetItems();
 }

@@ -37,7 +37,8 @@ SOURCES += main.cpp\
     administrator.cpp \
     comment.cpp \
     commentcatalog.cpp \
-    usercatalog.cpp
+    usercatalog.cpp \
+    usercatalogui.cpp
 
 HEADERS  += mainwindow.h \
     movie.h \
@@ -53,6 +54,7 @@ HEADERS  += mainwindow.h \
     administrator.h \
     comment.h \
     commentcatalog.h \
-    usercatalog.h
+    usercatalog.h \
+    usercatalogui.h
 
 FORMS    += mainwindow.ui

@@ -2,7 +2,7 @@
 #include<vector>
 #include<iostream>
 using namespace std;
-Movie::Movie(int no, string nam, string dir,string act, int pri, int who, string tye, string intro)
+Movie::Movie(int no, string nam, string dir, string act, int pri, int who, string tye, string intro )
 {
   movie_no=no;
   name=nam;
@@ -38,6 +38,6 @@ string Movie::getIntrotuce(){
     return introtuce;
 }
 
-vector<Session>& Movie::getSessionList(){
+vector<Session> &Movie::getSessionList(){
     return SessionList;
 }

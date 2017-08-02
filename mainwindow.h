@@ -31,8 +31,8 @@ private slots:
     void setUp();
     void skinLogin();
     void skinSetup();
-
-
+    void userShow(QListWidgetItem* a);
+    void deletUser();
 private:
     Ui::MainWindow *ui;
     OrderCatalog *ordercatalog;

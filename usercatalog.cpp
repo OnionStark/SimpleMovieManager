@@ -14,6 +14,7 @@ UserCatalog::UserCatalog()
 
     }
      file.close();
+   //  cout<<UserList.size();
    }
 
 QVector<User>& UserCatalog::getUserList(){
