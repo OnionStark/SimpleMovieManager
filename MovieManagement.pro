@@ -58,3 +58,13 @@ HEADERS  += mainwindow.h \
     usercatalogui.h
 
 FORMS    += mainwindow.ui
+
+DISTFILES += \
+    images/1.jpg \
+    images/人再囧途之泰囧.jpg \
+    images/催眠大师.jpg \
+    images/冰雪奇缘.jpg \
+    images/夏日大作战.jpg \
+    images/澳门风云.jpg \
+    images/终结者-创世纪.jpg \
+    images/超凡蜘蛛侠2.jpg

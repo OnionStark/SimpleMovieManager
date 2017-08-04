@@ -4,21 +4,28 @@ Comment::Comment()
 {
 
 }
-void Comment::setInformation(string a){
+Comment::Comment(QString mo, QString user, QString info){
+    movie=mo;
+    user_name=user;
+    information=info;
+
+}
+
+void Comment::setInformation(QString a){
     information=a;
 }
-void Comment::setMovie(string a){
+void Comment::setMovie(QString a){
     movie=a;
 }
-void Comment::setUserName(string a){
+void Comment::setUserName(QString a){
     user_name=a;
 }
-string Comment::getInformation(){
+QString Comment::getInformation(){
     return information;
 }
-string Comment::getMovie(){
+QString Comment::getMovie(){
     return movie;
 }
-string Comment::getUser(){
+QString Comment::getUser(){
     return user_name;
 }

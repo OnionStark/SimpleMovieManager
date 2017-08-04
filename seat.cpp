@@ -5,6 +5,10 @@ Seat::Seat(int r,int l){
     line=l;
     locked=false;
 }
+Seat::Seat(){
+
+}
+
 int Seat::getLine(){
     return line;
 }

@@ -3,13 +3,20 @@
 #include"movie.h"
 #include"seat.h"
 #include"session.h"
-#include<vector>
+#include<QVector>
+#include<QDataStream>
+#include<QFile>
+#include<QString>
+#include<iostream>
 using namespace std;
 class MovieCatalog
 {
 public:
     MovieCatalog();
-   vector<Movie> MovieList;
+    ~MovieCatalog();
+    Movie* findMovie(QString name);
+
+   QVector<Movie> MovieList;
 };
 
 #endif // INITIALIZE_H

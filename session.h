@@ -1,22 +1,39 @@
 #ifndef SESSION_H
 #define SESSION_H
-#include<string>
+#include<QString>
 #include"seat.h"
-#include<vector>
+#include<QVector>
 using namespace std;
 class Session
 {
 public:
-    Session(int ,string ,string);
-    string getTime();
-    string getDate();
+    Session(int ,QString ,QString);
+    Session();
+    QString getTime();
+    QString getDate();
     int getID();
-    vector<Seat>& getSeatList();
+    QVector<Seat>& getSeatList();
+    void setTime(QString a);
+    void setDate(QString a);
+    void setID(int a);
+friend QDataStream& operator << (QDataStream& out ,const Session& sessionTemp);
+friend QDataStream& operator >>(QDataStream& in ,Session& sessionTemp);
+
 private:
     int ID;
-    string date;
-    string time;
-    vector<Seat> SeatList;
+    QString date;
+    QString time;
+    QVector<Seat> SeatList;
     };
+inline QDataStream& operator << (QDataStream& out ,const Session& sessionTemp){
+    out<<sessionTemp.ID<<sessionTemp.date<<sessionTemp.time<<sessionTemp.SeatList;
+    return out;
+}
+
+inline QDataStream& operator >>(QDataStream& in ,Session& sessionTemp){
+    in>>sessionTemp.ID>>sessionTemp.date>>sessionTemp.time>>sessionTemp.SeatList;
+    return in;
+
+}
 
 #endif // SESSION_H

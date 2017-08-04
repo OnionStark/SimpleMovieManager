@@ -1,15 +1,18 @@
 #ifndef ORDERCATALOG_H
 #define ORDERCATALOG_H
-#include<vector>
+#include<QVector>
 #include"order.h"
+#include<QDataStream>
+#include<QFile>
 using namespace std;
 class OrderCatalog
 {
 public:
     OrderCatalog();
-    vector<Order>& getOrderList();
+    ~OrderCatalog();
+    QVector<Order>& getOrderList();
 private:
-   vector<Order> OrderList;
+   QVector<Order> OrderList;
 };
 
 #endif // ORDERCATALOG_H

@@ -11,7 +11,6 @@ void UserCatalogUI::setuserList(UserCatalog *a){
    userList=a;
 }
 void UserCatalogUI::resetItems(){
-    cout<<userList->getUserList().size();
     for(int i=this->count()-1;i>=0;i--){
         this->takeItem(i);
     }

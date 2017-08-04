@@ -7,9 +7,12 @@ class MovieCatalogUI : public QListWidget
     Q_OBJECT
 public:
     MovieCatalogUI(QWidget *parent=0);
-    void reset();
+    ~MovieCatalogUI();
     MovieCatalog* catalog;
+public slots:
 
+    void resetMovie();
+    void resetMovieSimply();
 };
 
 #endif // MOVIECATALOGUI_H
